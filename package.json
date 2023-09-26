@@ -1,0 +1,9 @@
+{
+  "name": "curso-ts",
+  "version": "1.0.0",
+  "description": "Curso de Typescript do CFB Cursos.",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
