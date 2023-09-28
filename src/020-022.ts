@@ -1,13 +1,19 @@
 class Conta {
-    public numero: number
-    public titular: string
+    protected titular: string
+    protected numero: number
 
     constructor(titular: string) {
         this.numero = this.gerarNumeroConta()
         this.titular = titular
     }
-    gerarNumeroConta() {
-        return Math.floor(Math.random() * 1000000) + 1
+    private gerarNumeroConta() {
+        return Math.floor(Math.random() * 100000000) + 1
+    }
+     protected info() {
+        console.log(`Titular:${this.titular}`);
+        console.log(`Numero:${this.numero}`);
+        console.log('-----------------------------');
+        
     }
 }
 class ContaPF extends Conta {
@@ -15,6 +21,8 @@ class ContaPF extends Conta {
     constructor(titular: string, cpf: number) {
         super(titular)
         this.cpf = cpf
+        console.log(`Conta PF criada:${titular}`);
+
     }
 }
 class ContaPJ extends Conta {
@@ -22,12 +30,12 @@ class ContaPJ extends Conta {
     constructor(titular: string, cnpj: number) {
         super(titular)
         this.cnpj = cnpj
+        console.log(`Conta PJ criada:${titular}`);
     }
 }
 
 const conta1 = new ContaPF("Herman Roberts", 443100750089)
 const conta2 = new ContaPJ("Clarence Delgado", 86213157844)
-console.log(conta1.titular);
-console.log(conta1.numero);
-console.log(conta2.titular);
-console.log(conta2.numero);
+
+conta1.info()
+conta2.info()
