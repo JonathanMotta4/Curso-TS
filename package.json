@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Curso de Typescript do CFB Cursos.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tsc":"tsc -w"
+  },
   "author": "",
   "license": "ISC"
 }
