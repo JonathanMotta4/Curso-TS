@@ -1,7 +1,7 @@
-class Conta {
+abstract class Conta {
 
     protected titular: string
-    protected numero: number
+    private readonly numero: number
     protected saldo: number
 
 
@@ -9,6 +9,7 @@ class Conta {
         this.numero = this.gerarNumeroConta()
         this.titular = titular
         this.saldo = 0
+
     }
     private gerarNumeroConta() {
         return Math.floor(Math.random() * 100000000) + 1
@@ -21,10 +22,10 @@ class Conta {
     public get mostrarSaldo(): number {
         return this.saldo
     }
-    set mudarSaldo(saldo:number){
-        this.saldo=saldo
+    set mudarSaldo(saldo: number) {
+        this.saldo = saldo
     }
-     protected deposito(valor: number) {
+    protected deposito(valor: number) {
         if (valor > 0) {
 
             this.saldo += valor
@@ -108,15 +109,4 @@ class ContaPJ extends Conta {
 const conta1 = new ContaPF("Herman Roberts", 254, 443100750089)
 const conta2 = new ContaPJ("Clarence Delgado", 5746, 86213157844)
 
-//conta1.info()
-//conta2.info()
-
-
-
-console.log(conta1.mostrarSaldo)
-
-conta1.saque(150)
-
-console.log(conta1.mostrarSaldo)
-conta1.mudarSaldo=125
-console.log(conta1.mostrarSaldo)
+conta1.info()
