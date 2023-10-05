@@ -1,3 +1,9 @@
+interface Tributos {
+    taxaCalculo: number
+    CalcularTributos(taxa: number): number
+}
+
+
 abstract class Conta {
 
     protected titular: string
@@ -39,13 +45,18 @@ abstract class Conta {
 
     }
 }
-class ContaPF extends Conta {
+class ContaPF extends Conta implements Tributos {
     cpf: number
-
-    constructor(titular: string, saldo: number, cpf: number) {
+    taxaCalculo=10;
+    
+    CalcularTributos(taxa: number): number {
+        return taxa*this.taxaCalculo
+    }
+    constructor(titular: string, saldo: number, cpf: number,) {
         super(titular)
         this.saldo = saldo
         this.cpf = cpf
+        
 
     }
     info() {
@@ -110,3 +121,4 @@ const conta1 = new ContaPF("Herman Roberts", 254, 443100750089)
 const conta2 = new ContaPJ("Clarence Delgado", 5746, 86213157844)
 
 conta1.info()
+console.log(conta1.CalcularTributos(15))

@@ -36,6 +36,10 @@ class Conta {
 }
 class ContaPF extends Conta {
     cpf;
+    taxaCalculo = 10;
+    CalcularTributos(taxa) {
+        return taxa * this.taxaCalculo;
+    }
     constructor(titular, saldo, cpf) {
         super(titular);
         this.saldo = saldo;
@@ -97,3 +101,4 @@ class ContaPJ extends Conta {
 const conta1 = new ContaPF("Herman Roberts", 254, 443100750089);
 const conta2 = new ContaPJ("Clarence Delgado", 5746, 86213157844);
 conta1.info();
+console.log(conta1.CalcularTributos(15));
